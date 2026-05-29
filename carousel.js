@@ -54,7 +54,9 @@
 
     function frame(now) {
       if (last === null) last = now;
-      const dt = (now - last) / 1000;
+      // ограничиваем шаг: после возврата со скрытой вкладки (rAF не тикал)
+      // dt был бы огромным и карусель «прыгнула» бы — продолжаем плавно
+      const dt = Math.min((now - last) / 1000, 0.05);
       last = now;
       if (!paused && pxPerSec > 0) {
         offset += pxPerSec * dt;
