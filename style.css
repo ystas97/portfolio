@@ -115,9 +115,8 @@ a { color: inherit; text-decoration: none; }
 .carousel__track {
   display: flex;
   width: max-content;
-  animation: carousel-scroll var(--carousel-duration, 24s) linear infinite;
+  will-change: transform; /* прокрутка управляется JS (carousel.js) */
 }
-.carousel:hover .carousel__track { animation-play-state: paused; }
 .carousel__item {
   width: 345px;
   height: 345px;
@@ -126,9 +125,26 @@ a { color: inherit; text-decoration: none; }
   margin-right: 20px;
   flex-shrink: 0;
 }
-@keyframes carousel-scroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+/* ===== Media carousel (горизонтальные изображения + видео под квадратами) ===== */
+.media-carousel {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 3%, #000 97%, transparent);
+}
+.media-carousel__track {
+  display: flex;
+  width: max-content;
+  will-change: transform; /* прокрутка управляется JS (carousel.js) */
+}
+.media-carousel__item {
+  height: 300px;
+  width: auto;
+  margin-right: 38px;
+  border-radius: var(--radius-img);
+  object-fit: cover;
+  flex: 0 0 auto;
+  display: block;
 }
 
 /* ===== Intro ===== */
@@ -223,13 +239,15 @@ a { color: inherit; text-decoration: none; }
 /* Experience media */
 .exp__media { display: flex; flex-direction: column; gap: 38px; }
 .exp__media-row { display: flex; gap: 38px; }
-.exp__media-row img {
+.exp__media-row img,
+.exp__media-row video {
   flex: 1 1 0;
   min-width: 0; /* позволяет крупным изображениям сжиматься в равные колонки */
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--radius-img);
+  display: block;
 }
 .exp__media-wide {
   width: 100%;
@@ -273,6 +291,7 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 767px) {
+  .media-carousel__item { height: 190px; margin-right: 20px; }
   .hero { min-height: 600px; padding-top: 40px; }
   .spline-container {
     top: 140px;
@@ -293,8 +312,9 @@ a { color: inherit; text-decoration: none; }
   .footer__images img { width: 140px; height: 140px; }
 }
 
-/* Уважаем системную настройку «уменьшить движение» */
+/* Уважаем системную настройку «уменьшить движение»:
+   авто-прокрутку отключает carousel.js, здесь — запасной горизонтальный скролл */
 @media (prefers-reduced-motion: reduce) {
-  .carousel { overflow-x: auto; }
-  .carousel__track { animation: none; }
+  .carousel,
+  .media-carousel { overflow-x: auto; }
 }

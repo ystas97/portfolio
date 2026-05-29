@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=8" />
+  <link rel="stylesheet" href="style.css?v=12" />
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.95/build/spline-viewer.js"></script>
 </head>
 <body>
@@ -54,7 +54,7 @@
 
     <!-- ===== INTRO ===== -->
     <section class="intro">
-      <img class="intro__avatar" src="assets/avatar.png" alt="Виктор Радюк" />
+      <img class="intro__avatar" src="assets/avatar-victor.png" alt="Виктор Радюк" />
       <p class="intro__text">
         Привет, меня зовут Виктор. Я — senior дизайнер, 6 лет опыта в дизайне.
         Специализируюсь на разработке мобильных приложений и веб-платформ.
@@ -152,7 +152,16 @@
         <div class="exp__media">
           <div class="exp__media-row">
             <img src="assets/project-overlay.png" alt="" />
-            <img src="assets/phone-2.png" alt="" />
+            <video class="exp__media-video" src="assets/quinky.mp4" autoplay muted loop playsinline preload="metadata"></video>
+          </div>
+          <!-- Карусель горизонтальных изображений и видео под двумя квадратами -->
+          <div class="media-carousel" aria-label="Quinky — материалы">
+            <div class="media-carousel__track" data-speed="6">
+              <img class="media-carousel__item" src="assets/quinky-web.png" alt="Quinky — лендинг" />
+              <img class="media-carousel__item" src="assets/quinky-app.png" alt="Quinky — экраны приложения" />
+              <video class="media-carousel__item" src="assets/quinky-badge.mp4" autoplay muted loop playsinline></video>
+              <video class="media-carousel__item" src="assets/quinky-pink.mp4" autoplay muted loop playsinline></video>
+            </div>
           </div>
         </div>
       </article>
@@ -214,7 +223,7 @@
     </footer>
 
   </div>
-  <script src="carousel.js?v=3"></script>
+  <script src="carousel.js?v=5"></script>
   <script src="spline.js?v=1"></script>
 </body>
 </html>
