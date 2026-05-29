@@ -201,6 +201,8 @@ a { color: inherit; text-decoration: none; }
 .exp__media-row { display: flex; gap: 38px; }
 .exp__media-row img {
   flex: 1 1 0;
+  min-width: 0; /* позволяет крупным изображениям сжиматься в равные колонки */
+  width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: var(--radius-img);
