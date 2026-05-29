@@ -56,7 +56,7 @@ a { color: inherit; text-decoration: none; }
 .hero {
   position: relative;
   padding: 70px var(--gutter) 0;
-  min-height: 860px;
+  min-height: 820px;
 }
 .hero__title {
   font-family: "Raleway", Arial, sans-serif;
@@ -66,31 +66,28 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   text-transform: uppercase;
 }
-/* 3D-сцена Spline вместо статичной иллюстрации, по центру под заголовком */
+/* 3D-сцена Spline вместо статичной иллюстрации, по центру под заголовком.
+   Окно (.spline-container) — видимая область; сам вьюер крупнее окна и
+   центрируется в нём, благодаря чему голова крупная, а пустые поля сцены
+   обрезаются (overflow: hidden). */
 .spline-container {
   position: absolute;
   left: 50%;
-  top: 180px;
+  top: 190px;
   transform: translateX(-50%);
-  width: 720px;   /* ДЕСКТОП: ширина 3D-блока */
-  height: 660px;  /* ДЕСКТОП: высота 3D-блока */
+  width: 600px;   /* ДЕСКТОП: видимая ширина */
+  height: 600px;  /* ДЕСКТОП: видимая высота */
   overflow: hidden;
   z-index: 1;
 }
 .spline-container spline-viewer {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-/* Чёрный shape поверх плашки «Built with Spline» (правый нижний угол) */
-.spline-badge-mask {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 200px;
-  height: 60px;
-  background: #000;
-  z-index: 2;
+  top: 50%;
+  left: 50%;
+  /* Крупный холст = крупная голова. Меняй пропорцию холст/окно для зума. */
+  width: 1100px;
+  height: 1100px;
+  transform: translate(-50%, -50%);
 }
 
 /* ===== Strip ===== */
@@ -266,12 +263,13 @@ a { color: inherit; text-decoration: none; }
 }
 
 @media (max-width: 767px) {
-  .hero { min-height: 680px; padding-top: 40px; }
+  .hero { min-height: 600px; padding-top: 40px; }
   .spline-container {
-    top: 130px;
-    width: 380px;   /* МОБИЛА: ширина */
-    height: 520px;  /* МОБИЛА: высота */
+    top: 140px;
+    width: 340px;   /* МОБИЛА: видимая ширина */
+    height: 400px;  /* МОБИЛА: видимая высота */
   }
+  .spline-container spline-viewer { width: 720px; height: 720px; }
 }
 
 @media (max-width: 560px) {
