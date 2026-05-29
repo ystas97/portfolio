@@ -33,12 +33,17 @@
       <img src="assets/strip.png" alt="" />
     </div>
 
-    <!-- ===== GALLERY ===== -->
-    <section class="gallery">
-      <img src="assets/phone-1.png" alt="Проект — превью 1" />
-      <img src="assets/phone-2.png" alt="Проект — превью 2" />
-      <img src="assets/phone-3.png" alt="Проект — превью 3" />
-      <img src="assets/phone-4.png" alt="Проект — превью 4" />
+    <!-- ===== PROJECTS CAROUSEL =====
+         Чтобы добавить проект — просто добавьте сюда ещё одну строку:
+         <img class="carousel__item" src="assets/ваша-картинка.png" alt="Проект N" />
+         Дублирование для бесшовной прокрутки и скорость настроятся сами (carousel.js). -->
+    <section class="carousel" aria-label="Проекты">
+      <div class="carousel__track">
+        <img class="carousel__item" src="assets/phone-1.png" alt="Проект 1" />
+        <img class="carousel__item" src="assets/phone-2.png" alt="Проект 2" />
+        <img class="carousel__item" src="assets/phone-3.png" alt="Проект 3" />
+        <img class="carousel__item" src="assets/phone-4.png" alt="Проект 4" />
+      </div>
     </section>
 
     <!-- ===== INTRO ===== -->
@@ -203,5 +208,6 @@
     </footer>
 
   </div>
+  <script src="carousel.js"></script>
 </body>
 </html>

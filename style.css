@@ -80,27 +80,42 @@ a { color: inherit; text-decoration: none; }
 .strip { width: 100%; margin-top: -40px; }
 .strip img { width: 100%; height: auto; object-fit: cover; }
 
-/* ===== Gallery ===== */
-.gallery {
-  display: flex;
-  gap: 20px;
-  padding: 0;
+/* ===== Projects carousel ===== */
+.carousel {
+  overflow: hidden;
+  width: 100%;
   margin-top: 20px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
-.gallery img {
-  flex: 1 1 0;
-  aspect-ratio: 1 / 1;
+.carousel__track {
+  display: flex;
+  width: max-content;
+  animation: carousel-scroll var(--carousel-duration, 24s) linear infinite;
+}
+.carousel:hover .carousel__track { animation-play-state: paused; }
+.carousel__item {
+  width: 345px;
+  height: 345px;
   object-fit: cover;
   border-radius: 20px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+@keyframes carousel-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* ===== Intro ===== */
 .intro {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 36px;
-  padding: 98px var(--gutter) 0;
-  max-width: 1440px;
+  padding-top: 98px;
+  padding-right: var(--gutter);
+  /* По макету Figma: аватар начинается на x≈513, текст на x≈739 (из 1440) */
+  padding-left: calc(25% + 153px);
 }
 .intro__avatar {
   width: 190px;
@@ -221,9 +236,12 @@ a { color: inherit; text-decoration: none; }
   .nav__links { gap: 28px; }
   .hero { min-height: 520px; }
   .hero__art { top: 180px; }
-  .gallery { flex-wrap: wrap; }
-  .gallery img { flex: 1 1 calc(50% - 10px); }
-  .intro { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    padding-left: var(--gutter);
+  }
   .intro__text { font-size: 20px; line-height: 28px; }
   .exp__grid { grid-template-columns: 1fr; gap: 32px; }
   .exp__lead { font-size: 22px; line-height: 30px; }
@@ -232,7 +250,13 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 560px) {
   .nav { flex-direction: column; gap: 12px; align-items: flex-start; }
-  .gallery img { flex: 1 1 100%; }
+  .carousel__item { width: 260px; height: 260px; }
   .footer__row { flex-direction: column; gap: 12px; }
   .footer__images img { width: 140px; height: 140px; }
+}
+
+/* Уважаем системную настройку «уменьшить движение» */
+@media (prefers-reduced-motion: reduce) {
+  .carousel { overflow-x: auto; }
+  .carousel__track { animation: none; }
 }
