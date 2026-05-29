@@ -92,6 +92,13 @@ a { color: inherit; text-decoration: none; }
   transform: translate(-50%, -50%) scale(1.9);
   transform-origin: center center;
 }
+/* Прозрачный слой поверх сцены — перехватывает мышь/колесо у Spline,
+   чтобы прокрутка страницы над 3D-головой работала как обычно. */
+.spline-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
 
 /* ===== Strip ===== */
 .strip { width: 100%; margin-top: -40px; }
