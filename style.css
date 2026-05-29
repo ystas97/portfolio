@@ -84,11 +84,13 @@ a { color: inherit; text-decoration: none; }
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Крупный холст = крупная голова. Меняй это значение для зума:
-     больше — голова крупнее (окно .spline-container остаётся прежним). */
-  width: 1500px;
-  height: 1500px;
-  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  /* Зум сцены. Голова увеличивается ТОЛЬКО этим scale (увеличение
+     холста не помогает — Spline вписывает сцену в кадр).
+     Больше число — крупнее голова. Лишние поля обрезает overflow окна. */
+  transform: translate(-50%, -50%) scale(2.2);
+  transform-origin: center center;
 }
 
 /* ===== Strip ===== */
@@ -270,7 +272,11 @@ a { color: inherit; text-decoration: none; }
     width: 340px;   /* МОБИЛА: видимая ширина */
     height: 400px;  /* МОБИЛА: видимая высота */
   }
-  .spline-container spline-viewer { width: 950px; height: 950px; }
+  .spline-container spline-viewer {
+    width: 340px;
+    height: 340px;
+    transform: translate(-50%, -50%) scale(1.9);
+  }
 }
 
 @media (max-width: 560px) {
