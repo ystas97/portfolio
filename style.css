@@ -89,7 +89,7 @@ a { color: inherit; text-decoration: none; }
   /* Зум сцены. Голова увеличивается ТОЛЬКО этим scale (увеличение
      холста не помогает — Spline вписывает сцену в кадр).
      Больше число — крупнее голова. Лишние поля обрезает overflow окна. */
-  transform: translate(-50%, -50%) scale(2.2);
+  transform: translate(-50%, -50%) scale(1.9);
   transform-origin: center center;
 }
 
@@ -275,7 +275,7 @@ a { color: inherit; text-decoration: none; }
   .spline-container spline-viewer {
     width: 340px;
     height: 340px;
-    transform: translate(-50%, -50%) scale(1.9);
+    transform: translate(-50%, -50%) scale(1.7);
   }
 }
 
