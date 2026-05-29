@@ -56,7 +56,7 @@ a { color: inherit; text-decoration: none; }
 .hero {
   position: relative;
   padding: 70px var(--gutter) 0;
-  min-height: 760px;
+  min-height: 740px;
 }
 .hero__title {
   font-family: "Raleway", Arial, sans-serif;
@@ -66,14 +66,21 @@ a { color: inherit; text-decoration: none; }
   text-align: center;
   text-transform: uppercase;
 }
-.hero__art {
+/* 3D-сцена Spline вместо статичной иллюстрации, по центру под заголовком */
+.spline-container {
   position: absolute;
   left: 50%;
-  top: 230px;
+  top: 200px;
   transform: translateX(-50%);
-  width: clamp(340px, 50vw, 728px);
-  height: auto;
-  pointer-events: none;
+  width: 560px;   /* ДЕСКТОП: ширина 3D-блока */
+  height: 500px;  /* ДЕСКТОП: высота 3D-блока */
+  overflow: hidden;
+  z-index: 1;
+}
+.spline-container spline-viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* ===== Strip ===== */
@@ -236,8 +243,6 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 1000px) {
   .nav { padding: 20px var(--gutter); }
   .nav__links { gap: 28px; }
-  .hero { min-height: 520px; }
-  .hero__art { top: 180px; }
   .intro {
     flex-direction: column;
     align-items: flex-start;
@@ -248,6 +253,15 @@ a { color: inherit; text-decoration: none; }
   .exp__grid { grid-template-columns: 1fr; gap: 32px; }
   .exp__lead { font-size: 22px; line-height: 30px; }
   .exp__media-row { flex-direction: column; }
+}
+
+@media (max-width: 767px) {
+  .hero { min-height: 600px; padding-top: 40px; }
+  .spline-container {
+    top: 150px;
+    width: 320px;   /* МОБИЛА: ширина */
+    height: 440px;  /* МОБИЛА: высота */
+  }
 }
 
 @media (max-width: 560px) {
