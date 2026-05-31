@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&family=Playfair+Display:ital@1&family=Raleway:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=22" />
+  <link rel="stylesheet" href="style.css?v=23" />
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.95/build/spline-viewer.js"></script>
 </head>
 <body>
@@ -18,10 +18,22 @@
     <header class="nav">
       <a href="#" class="nav__brand">ВИКТОР РАДЮК</a>
       <nav class="nav__links nav__links--slide" aria-label="Навигация">
-        <a href="#experience">ОПЫТ И ПРОЕКТЫ</a>
-        <a href="https://www.behance.net/ystas975210" target="_blank" rel="noopener noreferrer">BEHANCE</a>
-        <a href="#pet-projects">PET PROJECTS</a>
-        <a href="#contacts">КОНТАКТЫ</a>
+        <a href="#experience" data-content="ОПЫТ И ПРОЕКТЫ">
+          <span class="nav__label nav__label--long">ОПЫТ И ПРОЕКТЫ</span>
+          <span class="nav__label nav__label--short">опыт</span>
+        </a>
+        <a href="https://www.behance.net/ystas975210" target="_blank" rel="noopener noreferrer" data-content="BEHANCE">
+          <span class="nav__label nav__label--long">BEHANCE</span>
+          <span class="nav__label nav__label--short">behance</span>
+        </a>
+        <a href="#pet-projects" data-content="PET PROJECTS">
+          <span class="nav__label nav__label--long">PET PROJECTS</span>
+          <span class="nav__label nav__label--short">pet project</span>
+        </a>
+        <a href="https://t.me/allo_galochka" target="_blank" rel="noopener noreferrer" data-content="TELEGRAM">
+          <span class="nav__label nav__label--long">КОНТАКТЫ</span>
+          <span class="nav__label nav__label--short">telegram</span>
+        </a>
       </nav>
     </header>
 
@@ -280,7 +292,7 @@
       <div class="footer__row">
         <span class="footer__copy">Виктор Радюк © 2026</span>
         <nav class="footer__links" aria-label="Контакты">
-          <a class="footer__link" href="#">Telegram</a>
+          <a class="footer__link" href="https://t.me/allo_galochka" target="_blank" rel="noopener noreferrer">Telegram</a>
           <a class="footer__link" href="https://www.behance.net/ystas975210" target="_blank" rel="noopener noreferrer">Behance</a>
           <a class="footer__link" href="#">LinkedIn</a>
         </nav>
