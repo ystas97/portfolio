@@ -3,12 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Виктор Радюк — Multidisciplinary Graphic Designer</title>
+  <title>Виктор Радюк — Multidisciplinary Product Designer</title>
   <meta name="description" content="Портфолио Виктора Радюка — senior дизайнера с 6-летним опытом в дизайне мобильных приложений и веб-платформ." />
+  <script>
+    try {
+      document.documentElement.lang = localStorage.getItem('portfolio-lang') === 'en' ? 'en' : 'ru';
+    } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&family=Playfair+Display:ital@1&family=Raleway:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=28" />
+  <link rel="stylesheet" href="style.css?v=31" />
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.95/build/spline-viewer.js"></script>
 </head>
 <body>
@@ -16,11 +21,11 @@
 
     <!-- ===== NAV ===== -->
     <header class="nav">
-      <a href="#" class="nav__brand">ВИКТОР РАДЮК</a>
-      <nav class="nav__links nav__links--slide" aria-label="Навигация">
-        <a href="#experience" data-nav-section="experience" data-content="ОПЫТ И ПРОЕКТЫ">
-          <span class="nav__label nav__label--long">ОПЫТ И ПРОЕКТЫ</span>
-          <span class="nav__label nav__label--short">опыт</span>
+      <a href="#" class="nav__brand" data-i18n="nav.brand">ВИКТОР РАДЮК</a>
+      <nav class="nav__links nav__links--slide" data-i18n-aria-label="nav.aria" aria-label="Навигация">
+        <a href="#experience" data-nav-section="experience" data-i18n-content="nav.experience.long">
+          <span class="nav__label nav__label--long" data-i18n="nav.experience.long">ОПЫТ И ПРОЕКТЫ</span>
+          <span class="nav__label nav__label--short" data-i18n="nav.experience.short">опыт</span>
         </a>
         <a href="https://www.behance.net/ystas975210" target="_blank" rel="noopener noreferrer" data-content="BEHANCE">
           <span class="nav__label nav__label--long">BEHANCE</span>
@@ -30,16 +35,17 @@
           <span class="nav__label nav__label--long">PET PROJECTS</span>
           <span class="nav__label nav__label--short">pet project</span>
         </a>
-        <a href="https://t.me/allo_galochka" target="_blank" rel="noopener noreferrer" data-nav-section="contacts" data-content="TELEGRAM">
-          <span class="nav__label nav__label--long">КОНТАКТЫ</span>
-          <span class="nav__label nav__label--short">telegram</span>
+        <a href="https://t.me/allo_galochka" target="_blank" rel="noopener noreferrer" data-nav-section="contacts" data-i18n-content="nav.contacts.long">
+          <span class="nav__label nav__label--long" data-i18n="nav.contacts.long">КОНТАКТЫ</span>
+          <span class="nav__label nav__label--short" data-i18n="nav.contacts.short">telegram</span>
         </a>
+        <button type="button" class="nav__lang-toggle" id="lang-toggle" aria-label="Switch to English">ENG</button>
       </nav>
     </header>
 
     <!-- ===== HERO ===== -->
     <section class="hero">
-      <h1 class="hero__title hero__title--play" aria-label="Multidisciplinary Product Designer">
+      <h1 class="hero__title hero__title--play" data-i18n-aria-label="hero.aria" aria-label="Multidisciplinary Product Designer">
         <span class="hero__title-line hero__title-line--desktop" data-text="MULTIDISCIPLINARY"></span>
         <span class="hero__title-line hero__title-line--desktop" data-text="PRODUCT DESIGNER"></span>
         <span class="hero__title-line hero__title-line--mobile" data-text="PRODUCT"></span>
@@ -62,7 +68,7 @@
          Чтобы добавить проект — просто добавьте сюда ещё одну строку:
          <img class="carousel__item" src="assets/ваша-картинка.png" alt="Проект N" />
          Дублирование для бесшовной прокрутки и скорость настроятся сами (carousel.js). -->
-    <section class="carousel" aria-label="Проекты">
+    <section class="carousel" data-i18n-aria-label="carousel.aria" aria-label="Проекты">
       <div class="carousel__track">
         <img class="carousel__item" src="assets/carousel-namu.png" alt="namu buro — мобильный интерфейс" />
         <img class="carousel__item" src="assets/carousel-foodicon.png" alt="Food Analyser — иконка приложения" />
@@ -75,8 +81,8 @@
 
     <!-- ===== INTRO ===== -->
     <section class="intro">
-      <img class="intro__avatar" src="assets/avatar-victor.png" alt="Виктор Радюк" />
-      <p class="intro__text">
+      <img class="intro__avatar" src="assets/avatar-victor.png" data-i18n-alt="intro.avatarAlt" alt="Виктор Радюк" />
+      <p class="intro__text" data-i18n="intro.text">
         Привет, меня зовут Виктор. Я — senior дизайнер, 6 лет опыта в дизайне.
         Специализируюсь на разработке мобильных приложений и веб-платформ.
         Помогаю выстраивать продуктовую дизайн-экспертизу и процессы в компании,
@@ -85,7 +91,7 @@
     </section>
 
     <!-- ===== EXPERIENCE ===== -->
-    <h2 class="section-heading">Опыт и проекты</h2>
+    <h2 class="section-heading" data-i18n="section.experience">Опыт и проекты</h2>
 
     <div class="experience" id="experience">
 
@@ -94,34 +100,34 @@
         <div class="exp__grid">
           <div class="exp__head">
             <h3 class="exp__name">Stepa Dev</h3>
-            <p class="exp__role">Senior Designer – руководство командой, исследования, дизайн-стратегия, проектирование взаимодействия, визуальный дизайн, менторство</p>
+            <p class="exp__role" data-i18n="exp.stepa.role">Senior Designer – руководство командой, исследования, дизайн-стратегия, проектирование взаимодействия, визуальный дизайн, менторство</p>
           </div>
           <div class="exp__body">
-            <p class="exp__lead">Прошёл путь от создания интерфейсов до системного развития дизайн-процессов в команде мобильных продуктов. Внедрил стандарты работы с дизайном и выстроил новый AI-assisted процесс передачи макетов в разработку.</p>
+            <p class="exp__lead" data-i18n="exp.stepa.lead">Прошёл путь от создания интерфейсов до системного развития дизайн-процессов в команде мобильных продуктов. Внедрил стандарты работы с дизайном и выстроил новый AI-assisted процесс передачи макетов в разработку.</p>
 
             <div class="exp__list-group">
-              <h4 class="exp__subtitle">Достижения и вклад</h4>
+              <h4 class="exp__subtitle" data-i18n="shared.achievements">Достижения и вклад</h4>
               <ul class="exp__list">
-                <li>Проектировал интерфейсы для новых мобильных приложений и улучшал существующие продукты.</li>
-                <li>Систематизировал работу с макетами в Figma: внедрил структурный подход к компонентам, стилям и variables.</li>
-                <li>Разработал внутренние гайдлайны по коммуникации, оценке задач и предоставлению фидбека в дизайн-команде.</li>
-                <li>Выстроил новый процесс передачи дизайна в разработку: дизайнеры создают интерфейс в Figma и с помощью AI-инструментов переносят UI-основу в код.</li>
+                <li data-i18n="exp.stepa.a1">Проектировал интерфейсы для новых мобильных приложений и улучшал существующие продукты.</li>
+                <li data-i18n="exp.stepa.a2">Систематизировал работу с макетами в Figma: внедрил структурный подход к компонентам, стилям и variables.</li>
+                <li data-i18n="exp.stepa.a3">Разработал внутренние гайдлайны по коммуникации, оценке задач и предоставлению фидбека в дизайн-команде.</li>
+                <li data-i18n="exp.stepa.a4">Выстроил новый процесс передачи дизайна в разработку: дизайнеры создают интерфейс в Figma и с помощью AI-инструментов переносят UI-основу в код.</li>
               </ul>
             </div>
 
             <div class="exp__list-group">
-              <h4 class="exp__subtitle">Результаты</h4>
+              <h4 class="exp__subtitle" data-i18n="shared.results">Результаты</h4>
               <ul class="exp__list">
-                <li>Повысил системность и качество дизайн-работы внутри команды.</li>
-                <li>Снизил объём ручной работы разработчиков над интерфейсами, позволив им сосредоточиться на функциональности продукта.</li>
-                <li>Сократил цикл создания и реализации дизайна с 3–4 месяцев до нескольких недель.</li>
+                <li data-i18n="exp.stepa.r1">Повысил системность и качество дизайн-работы внутри команды.</li>
+                <li data-i18n="exp.stepa.r2">Снизил объём ручной работы разработчиков над интерфейсами, позволив им сосредоточиться на функциональности продукта.</li>
+                <li data-i18n="exp.stepa.r3">Сократил цикл создания и реализации дизайна с 3–4 месяцев до нескольких недель.</li>
               </ul>
             </div>
 
             <dl class="exp__meta">
-              <div><dt>Года</dt><dd>2024 – Now</dd></div>
-              <div><dt>Роль</dt><dd>Senior Designer</dd></div>
-              <div><dt>Платформы</dt><dd>iOS, Android</dd></div>
+              <div><dt data-i18n="shared.years">Года</dt><dd data-i18n="shared.now">2024 – Now</dd></div>
+              <div><dt data-i18n="shared.role">Роль</dt><dd>Senior Designer</dd></div>
+              <div><dt data-i18n="shared.platforms">Платформы</dt><dd>iOS, Android</dd></div>
             </dl>
           </div>
         </div>
@@ -130,7 +136,7 @@
             <img src="assets/stepa-1.png" alt="Stepa Dev — TCG Scanner" />
             <img src="assets/stepa-2.png" alt="Stepa Dev — paywall-экраны" />
           </div>
-          <div class="media-carousel" aria-label="Stepa Dev — работы">
+          <div class="media-carousel" data-i18n-aria-label="exp.stepa.carouselAria" aria-label="Stepa Dev — работы">
             <div class="media-carousel__track" data-speed="6">
               <img class="media-carousel__item" src="assets/stepa-3.png" alt="Stepa Dev — 2Number" />
               <img class="media-carousel__item" src="assets/stepa-4.png" alt="Stepa Dev — TCG Scanner" />
@@ -149,34 +155,34 @@
         <div class="exp__grid">
           <div class="exp__head">
             <h3 class="exp__name">Quinky Sex Ed StartUp, Amsterdam</h3>
-            <p class="exp__role">Product (UI/UX) Designer — определение объёма фич, исследования, проектирование взаимодействия, визуальный дизайн, прототипирование</p>
+            <p class="exp__role" data-i18n="exp.quinky.role">Product (UI/UX) Designer — определение объёма фич, исследования, проектирование взаимодействия, визуальный дизайн, прототипирование</p>
           </div>
           <div class="exp__body">
-            <p class="exp__lead">Проектировал приложение для аудитории Gen Z, развивал ключевые сценарии продукта и руководил дизайн-процессом в тесной связке с командой разработки.</p>
+            <p class="exp__lead" data-i18n="exp.quinky.lead">Проектировал приложение для аудитории Gen Z, развивал ключевые сценарии продукта и руководил дизайн-процессом в тесной связке с командой разработки.</p>
 
             <div class="exp__list-group">
-              <h4 class="exp__subtitle">Достижения и вклад</h4>
+              <h4 class="exp__subtitle" data-i18n="shared.achievements">Достижения и вклад</h4>
               <ul class="exp__list">
-                <li>Определял объём фич, проводил исследования, проектировал пользовательские сценарии, визуальный дизайн и интерактивные прототипы.</li>
-                <li>Разрабатывал мобильное приложение для wellness-стартапа, тесно взаимодействуя с frontend- и backend-разработчиками.</li>
-                <li>Анализировал обратную связь от пользователей поколения Z и на её основе улучшал онбординг и пользовательские сценарии.</li>
-                <li>Внедрял механики геймификации с учётом интересов и поведения целевой аудитории</li>
+                <li data-i18n="exp.quinky.a1">Определял объём фич, проводил исследования, проектировал пользовательские сценарии, визуальный дизайн и интерактивные прототипы.</li>
+                <li data-i18n="exp.quinky.a2">Разрабатывал мобильное приложение для wellness-стартапа, тесно взаимодействуя с frontend- и backend-разработчиками.</li>
+                <li data-i18n="exp.quinky.a3">Анализировал обратную связь от пользователей поколения Z и на её основе улучшал онбординг и пользовательские сценарии.</li>
+                <li data-i18n="exp.quinky.a4">Внедрял механики геймификации с учётом интересов и поведения целевой аудитории</li>
               </ul>
             </div>
 
             <div class="exp__list-group">
-              <h4 class="exp__subtitle">Результаты</h4>
+              <h4 class="exp__subtitle" data-i18n="shared.results">Результаты</h4>
               <ul class="exp__list">
-                <li>Взял на себя ведущую роль в управлении полным дизайн-процессом продукта.</li>
-                <li>Обеспечивал целостность пользовательского опыта и качество визуальных решений на всех этапах разработки.</li>
-                <li>Руководил и менторил junior-дизайнеров, помогая команде работать системнее и эффективнее.</li>
+                <li data-i18n="exp.quinky.r1">Взял на себя ведущую роль в управлении полным дизайн-процессом продукта.</li>
+                <li data-i18n="exp.quinky.r2">Обеспечивал целостность пользовательского опыта и качество визуальных решений на всех этапах разработки.</li>
+                <li data-i18n="exp.quinky.r3">Руководил и менторил junior-дизайнеров, помогая команде работать системнее и эффективнее.</li>
               </ul>
             </div>
 
             <dl class="exp__meta">
-              <div><dt>Года</dt><dd>2023 – 2024</dd></div>
-              <div><dt>Роль</dt><dd>Product Designer</dd></div>
-              <div><dt>Платформы</dt><dd>iOS, Android</dd></div>
+              <div><dt data-i18n="shared.years">Года</dt><dd>2023 – 2024</dd></div>
+              <div><dt data-i18n="shared.role">Роль</dt><dd>Product Designer</dd></div>
+              <div><dt data-i18n="shared.platforms">Платформы</dt><dd>iOS, Android</dd></div>
             </dl>
           </div>
         </div>
@@ -186,7 +192,7 @@
             <video class="exp__media-video" src="assets/quinky.mp4" autoplay muted loop playsinline preload="metadata"></video>
           </div>
           <!-- Карусель горизонтальных изображений и видео под двумя квадратами -->
-          <div class="media-carousel" aria-label="Quinky — материалы">
+          <div class="media-carousel" data-i18n-aria-label="exp.quinky.carouselAria" aria-label="Quinky — материалы">
             <div class="media-carousel__track" data-speed="6">
               <img class="media-carousel__item" src="assets/quinky-web.png" alt="Quinky — лендинг" />
               <img class="media-carousel__item" src="assets/quinky-app.png" alt="Quinky — экраны приложения" />
@@ -202,49 +208,49 @@
         <div class="exp__grid">
           <div class="exp__head">
             <h3 class="exp__name">Allogalochka</h3>
-            <p class="exp__role">Графический дизайнер / Web дизайнер</p>
+            <p class="exp__role" data-i18n="exp.allo.role">Графический дизайнер / Web дизайнер</p>
           </div>
           <div class="exp__body">
-            <p class="exp__lead">Создал более 50 адаптивных сайтов для стартапов, локального бизнеса и e-commerce.</p>
+            <p class="exp__lead" data-i18n="exp.allo.lead">Создал более 50 адаптивных сайтов для стартапов, локального бизнеса и e-commerce.</p>
 
             <div class="exp__list-group">
-              <h4 class="exp__subtitle">Достижения и вклад</h4>
+              <h4 class="exp__subtitle" data-i18n="shared.achievements">Достижения и вклад</h4>
               <ul class="exp__list">
-                <li>Проектировал адаптивные сайты и лендинги для бизнеса из разных сфер: от локальных компаний до e-commerce проектов.</li>
-                <li>Вёл полный цикл дизайн-работы: изучение задачи и аудитории, разработка UX-структуры, визуальной концепции и финальных макетов.</li>
-                <li>Презентовал решения клиентам на каждом этапе, аргументировал дизайн-решения и вносил правки с учётом бизнес-задач.</li>
+                <li data-i18n="exp.allo.a1">Проектировал адаптивные сайты и лендинги для бизнеса из разных сфер: от локальных компаний до e-commerce проектов.</li>
+                <li data-i18n="exp.allo.a2">Вёл полный цикл дизайн-работы: изучение задачи и аудитории, разработка UX-структуры, визуальной концепции и финальных макетов.</li>
+                <li data-i18n="exp.allo.a3">Презентовал решения клиентам на каждом этапе, аргументировал дизайн-решения и вносил правки с учётом бизнес-задач.</li>
               </ul>
             </div>
 
             <div class="exp__list-group">
-              <h4 class="exp__subtitle">Результаты</h4>
+              <h4 class="exp__subtitle" data-i18n="shared.results">Результаты</h4>
               <ul class="exp__list">
-                <li>Разработал более 50 адаптивных сайтов для коммерческих проектов</li>
-                <li>Выстроил эффективное взаимодействие внутри проектной команды, что позволяло выпускать сайты в сжатые сроки.</li>
+                <li data-i18n="exp.allo.r1">Разработал более 50 адаптивных сайтов для коммерческих проектов</li>
+                <li data-i18n="exp.allo.r2">Выстроил эффективное взаимодействие внутри проектной команды, что позволяло выпускать сайты в сжатые сроки.</li>
               </ul>
             </div>
 
             <dl class="exp__meta">
-              <div><dt>Года</dt><dd>2019 – 2023</dd></div>
-              <div><dt>Роль</dt><dd>Web Designer</dd></div>
-              <div><dt>Платформы</dt><dd>Web</dd></div>
+              <div><dt data-i18n="shared.years">Года</dt><dd>2019 – 2023</dd></div>
+              <div><dt data-i18n="shared.role">Роль</dt><dd>Web Designer</dd></div>
+              <div><dt data-i18n="shared.platforms">Платформы</dt><dd>Web</dd></div>
             </dl>
           </div>
         </div>
         <div class="exp__media">
           <div class="exp__media-row">
-            <img src="assets/allo-main.png" alt="namu buro — страница проектов" />
+            <img src="assets/allo-main.png" data-i18n-alt="exp.allo.mainAlt" alt="namu buro — страница проектов" />
             <video class="exp__media-video" src="assets/allo-video.mp4" autoplay muted loop playsinline preload="metadata"></video>
           </div>
           <!-- Карусель с фото работ под квадратами -->
-          <div class="media-carousel" aria-label="Allogalochka — работы">
+          <div class="media-carousel" data-i18n-aria-label="exp.allo.carouselAria" aria-label="Allogalochka — работы">
             <div class="media-carousel__track" data-speed="6">
               <img class="media-carousel__item" src="assets/allo-1.png" alt="Работа — LIM/CC" />
-              <img class="media-carousel__item" src="assets/allo-2.png" alt="Работа" />
-              <img class="media-carousel__item" src="assets/allo-3.png" alt="Работа" />
-              <img class="media-carousel__item" src="assets/allo-4.png" alt="Работа" />
-              <img class="media-carousel__item" src="assets/allo-5.png" alt="Работа" />
-              <img class="media-carousel__item" src="assets/allo-6.png" alt="Работа" />
+              <img class="media-carousel__item" src="assets/allo-2.png" data-i18n-alt="exp.allo.workAlt" alt="Работа" />
+              <img class="media-carousel__item" src="assets/allo-3.png" data-i18n-alt="exp.allo.workAlt" alt="Работа" />
+              <img class="media-carousel__item" src="assets/allo-4.png" data-i18n-alt="exp.allo.workAlt" alt="Работа" />
+              <img class="media-carousel__item" src="assets/allo-5.png" data-i18n-alt="exp.allo.workAlt" alt="Работа" />
+              <img class="media-carousel__item" src="assets/allo-6.png" data-i18n-alt="exp.allo.workAlt" alt="Работа" />
             </div>
           </div>
         </div>
@@ -257,17 +263,17 @@
             <h3 class="exp__name">Langy</h3>
           </div>
           <div class="exp__body">
-            <p class="exp__lead">Создал умный автоматический переключатель клавиатуры для macOS.</p>
+            <p class="exp__lead" data-i18n="exp.langy.lead">Создал умный автоматический переключатель клавиатуры для macOS.</p>
 
             <ul class="exp__list">
-              <li>Умный автоматический переключатель клавиатуры для macOS. Продукт помогает пользователям писать без ошибок раскладки и учиться прямо во время работы, не прерывая основной сценарий.</li>
+              <li data-i18n="exp.langy.a1">Умный автоматический переключатель клавиатуры для macOS. Продукт помогает пользователям писать без ошибок раскладки и учиться прямо во время работы, не прерывая основной сценарий.</li>
             </ul>
 
             <dl class="exp__meta">
-              <div><dt>Года</dt><dd>2025</dd></div>
-              <div><dt>Роль</dt><dd>Product Designer</dd></div>
-              <div><dt>Платформы</dt><dd>macOS</dd></div>
-              <div><dt>Посмотреть</dt><dd><a class="exp__meta-link" href="https://apps.apple.com/rs/app/%D0%B0%D0%B2%D1%82%D0%BE-%D1%80%D0%B0%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0-ru-en-langy/id6747981181?mt=12" target="_blank" rel="noopener noreferrer" aria-label="Авто-раскладка RU/EN – Langy в App Store">App Store</a></dd></div>
+              <div><dt data-i18n="shared.years">Года</dt><dd>2025</dd></div>
+              <div><dt data-i18n="shared.role">Роль</dt><dd>Product Designer</dd></div>
+              <div><dt data-i18n="shared.platforms">Платформы</dt><dd>macOS</dd></div>
+              <div><dt data-i18n="shared.view">Посмотреть</dt><dd><a class="exp__meta-link" href="https://apps.apple.com/rs/app/%D0%B0%D0%B2%D1%82%D0%BE-%D1%80%D0%B0%D1%81%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0-ru-en-langy/id6747981181?mt=12" target="_blank" rel="noopener noreferrer" data-i18n-aria-label="exp.langy.appStoreAria" aria-label="Авто-раскладка RU/EN – Langy в App Store">App Store</a></dd></div>
             </dl>
           </div>
         </div>
@@ -276,7 +282,7 @@
             <img src="assets/langy-main.png" alt="Langy — настройки" />
             <img src="assets/langy-main-2.png" alt="Langy — исключения приложений" />
           </div>
-          <div class="media-carousel" aria-label="Langy — экраны">
+          <div class="media-carousel" data-i18n-aria-label="exp.langy.carouselAria" aria-label="Langy — экраны">
             <div class="media-carousel__track" data-speed="6">
               <img class="media-carousel__item" src="assets/langy-1.png" alt="Langy — обучение слов" />
               <img class="media-carousel__item" src="assets/langy-2.png" alt="Langy — о приложении" />
@@ -292,19 +298,20 @@
     <!-- ===== FOOTER ===== -->
     <footer class="footer" id="contacts">
       <div class="footer__row">
-        <span class="footer__copy">Виктор Радюк © 2026</span>
-        <nav class="footer__links" aria-label="Контакты">
+        <span class="footer__copy" data-i18n="footer.copy">Виктор Радюк © 2026</span>
+        <nav class="footer__links" data-i18n-aria-label="footer.aria" aria-label="Контакты">
           <a class="footer__link" href="https://t.me/allo_galochka" target="_blank" rel="noopener noreferrer">Telegram</a>
           <a class="footer__link" href="https://www.behance.net/ystas975210" target="_blank" rel="noopener noreferrer">Behance</a>
-          <a class="footer__link" href="#">LinkedIn</a>
+          <a class="footer__link" href="https://www.linkedin.com/in/viktor-radyuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </nav>
       </div>
     </footer>
 
   </div>
+  <script src="i18n.js?v=2"></script>
   <script src="hero-title.js?v=2"></script>
   <script src="nav-scroll.js?v=1"></script>
-  <script src="nav-slide.js?v=1"></script>
+  <script src="nav-slide.js?v=2"></script>
   <script src="carousel.js?v=6"></script>
   <script src="spline.js?v=2"></script>
 </body>
