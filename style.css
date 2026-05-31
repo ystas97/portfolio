@@ -435,7 +435,7 @@ a { color: inherit; text-decoration: none; }
   .hero__title-line--desktop { display: none; }
   .hero__title-line--mobile { display: flex; }
   .hero__title.hero__title--play {
-    font-size: clamp(42px, 12.5vw, 84px);
+    font-size: clamp(48px, 14.5vw, 96px);
   }
   .hero__title-line {
     flex-wrap: nowrap;
