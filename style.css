@@ -418,9 +418,10 @@ a { color: inherit; text-decoration: none; }
     gap: 8px 10px;
     flex-wrap: wrap;
   }
+  .nav__brand { font-size: 14px; }
   .nav__links a {
-    font-size: 12px;
-    letter-spacing: 0.1px;
+    font-size: 14px;
+    letter-spacing: 0.15px;
   }
   .nav__label--long { display: none; }
   .nav__label--short { display: inline; }
@@ -445,14 +446,15 @@ a { color: inherit; text-decoration: none; }
     width: 0.45em;
   }
   .spline-container {
-    top: 130px;
-    width: 280px;   /* МОБИЛА: видимая ширина */
-    height: 320px;  /* МОБИЛА: видимая высота */
+    top: 120px;
+    width: 340px;   /* МОБИЛА: окно просмотра (не уменьшаем — иначе обрезка) */
+    height: 400px;
   }
   .spline-container spline-viewer {
-    width: 280px;
-    height: 280px;
-    transform: translate(-50%, -50%) scale(1.35);
+    width: 340px;
+    height: 340px;
+    /* Меньше голова только через scale, не через размер холста */
+    transform: translate(-50%, -50%) scale(1.48);
   }
 }
 
