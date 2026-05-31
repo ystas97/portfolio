@@ -1,32 +1,85 @@
-// Скрываем плашку «Built with Spline» внутри shadow DOM вьюера.
-// Shadow root у <spline-viewer> открытый, поэтому ссылку #logo можно
-// надёжно спрятать из основного документа.
+// Скрываем плашку «Built with Spline» внутри shadow DOM вьюера (в т.ч. вложенных).
 (function () {
-  const viewer = document.querySelector('spline-viewer');
+  var viewer = document.querySelector('spline-viewer');
   if (!viewer) return;
 
+  var LOGO_SELECTORS =
+    '#logo, #spline-logo, #watermark, a[href*="spline.design"], a[href*="splinetool"], ' +
+    'a[href*="splinecommunity"], [class*="logo"], [class*="Logo"], [class*="watermark"], ' +
+    '[id*="logo"], [id*="Logo"], [id*="watermark"]';
+
+  function hideInRoot(root) {
+    if (!root || !root.querySelectorAll) return 0;
+    var count = 0;
+
+    root.querySelectorAll(LOGO_SELECTORS).forEach(function (el) {
+      el.style.setProperty('display', 'none', 'important');
+      el.style.setProperty('visibility', 'hidden', 'important');
+      el.style.setProperty('opacity', '0', 'important');
+      el.style.setProperty('pointer-events', 'none', 'important');
+      count += 1;
+    });
+
+    root.querySelectorAll('a, button').forEach(function (el) {
+      var label = (el.textContent || '').trim().toLowerCase();
+      if (
+        label.length < 40 &&
+        (label.indexOf('built with spline') !== -1 || label === 'spline')
+      ) {
+        el.style.setProperty('display', 'none', 'important');
+        count += 1;
+      }
+    });
+
+    root.querySelectorAll('*').forEach(function (el) {
+      if (el.shadowRoot) count += hideInRoot(el.shadowRoot);
+    });
+
+    return count;
+  }
+
   function hideLogo() {
-    const sr = viewer.shadowRoot;
-    if (!sr) return false;
-    const logo = sr.querySelector('#logo, a[href*="spline.design"]');
-    if (logo) {
-      logo.style.display = 'none';
-      return true;
-    }
-    return false;
+    hideInRoot(viewer.shadowRoot);
+    return true;
   }
 
-  // Лого появляется после загрузки сцены — опрашиваем, пока не найдём.
-  if (!hideLogo()) {
-    const timer = setInterval(() => {
-      if (hideLogo()) clearInterval(timer);
-    }, 250);
-    setTimeout(() => clearInterval(timer), 20000);
-
-    // На случай повторной вставки лого — следим за shadow DOM.
-    const sr = viewer.shadowRoot;
-    if (sr && 'MutationObserver' in window) {
-      new MutationObserver(hideLogo).observe(sr, { childList: true, subtree: true });
-    }
+  function attachObserver() {
+    var sr = viewer.shadowRoot;
+    if (!sr || viewer.__splineLogoObs) return;
+    viewer.__splineLogoObs = new MutationObserver(hideLogo);
+    viewer.__splineLogoObs.observe(sr, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class', 'hidden'],
+    });
   }
+
+  function boot() {
+    hideLogo();
+    attachObserver();
+  }
+
+  boot();
+
+  var poll = window.setInterval(boot, 200);
+  window.setTimeout(function () {
+    window.clearInterval(poll);
+  }, 60000);
+
+  if (!viewer.shadowRoot) {
+    var waitRoot = new MutationObserver(function () {
+      if (viewer.shadowRoot) {
+        boot();
+        waitRoot.disconnect();
+      }
+    });
+    waitRoot.observe(viewer, { childList: true });
+  }
+
+  viewer.addEventListener('load', boot);
+
+  document.addEventListener('visibilitychange', function () {
+    if (!document.hidden) boot();
+  });
 })();

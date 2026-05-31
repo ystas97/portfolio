@@ -431,7 +431,7 @@ a { color: inherit; text-decoration: none; }
   .nav__links--slide a:focus-visible {
     transform: none;
   }
-  .hero { min-height: 520px; padding-top: 16px; }
+  .hero { min-height: 580px; padding-top: 16px; }
   .hero__title-line--desktop { display: none; }
   .hero__title-line--mobile { display: flex; }
   .hero__title.hero__title--play {
@@ -450,13 +450,27 @@ a { color: inherit; text-decoration: none; }
   }
   .spline-container {
     top: 120px;
-    width: 340px;   /* МОБИЛА: окно просмотра (не уменьшаем — иначе обрезка) */
-    height: 400px;
+    width: 360px;
+    /* Выше окно — снизу запас под бейдж Spline, лицо не обрезаем */
+    height: 480px;
+  }
+  /* Закрываем нижний угол, если бейдж всё же прорисовался */
+  .spline-container::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 64px;
+    background: linear-gradient(to top, var(--bg) 55%, transparent);
+    pointer-events: none;
+    z-index: 3;
   }
   .spline-container spline-viewer {
-    width: 340px;
-    height: 340px;
-    /* Меньше голова только через scale, не через размер холста */
+    width: 360px;
+    height: 380px;
+    top: 44%;
+    /* scale — размер головы; сдвиг вверх — бейдж ниже лица */
     transform: translate(-50%, -50%) scale(1.4);
   }
 }
