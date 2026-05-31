@@ -38,33 +38,136 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 32px 40px;
+  padding: 24px 40px;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(8px);
 }
 .nav__brand { font-size: 15px; letter-spacing: 0.3px; }
-.nav__links { display: flex; gap: 70px; }
+.nav__links { display: flex; gap: 70px; align-items: center; }
 .nav__links a {
   font-size: 15px;
   letter-spacing: 0.3px;
   opacity: 0.9;
-  transition: opacity 0.2s;
 }
-.nav__links a:hover { opacity: 1; text-decoration: underline; }
+/* Перелистывание текста по hover (без смены цвета) */
+.nav-link-slide {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1.2;
+}
+.nav__links--slide a {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  transition: transform 0.35s ease, opacity 0.2s;
+}
+.nav__links--slide a::before {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  content: attr(data-content);
+  color: inherit;
+  white-space: nowrap;
+}
+.nav__links--slide a:hover,
+.nav__links--slide a:focus-visible {
+  transform: translateY(-100%);
+  opacity: 1;
+}
 
 /* ===== Hero ===== */
 .hero {
   position: relative;
-  padding: 70px var(--gutter) 0;
-  min-height: 820px;
+  padding: 32px var(--gutter) 0;
+  min-height: 780px;
 }
 .hero__title {
   font-family: "Raleway", Arial, sans-serif;
   font-weight: 700;
-  font-size: clamp(48px, 9.8vw, 141px);
-  line-height: 1.2;
+  font-size: clamp(38px, 7.8vw, 124px);
+  line-height: 1.05;
   text-align: center;
   text-transform: uppercase;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Игра шрифтов в hero (референс: cycymymy.com — slot-анимация букв) */
+.hero__title.hero__title--play {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.06em;
+  width: 100%;
+  max-width: none;
+  padding: 0 clamp(12px, 2vw, 32px);
+  text-transform: none;
+}
+.hero__title-line {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 0.9;
+  width: 100%;
+  max-width: 1440px;
+}
+.hero__letter-space {
+  display: inline-block;
+  width: 0.55em;
+}
+.hero__letter-slot {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  height: 1.05em;
+  min-width: 0.72em;
+  padding: 0 0.04em;
+  text-align: center;
+}
+.hero__slot-letter {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: var(--white);
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transform: translate(-50%, -50%);
+  transition: transform 0.62s ease;
+}
+.hero__letter-slot .hero__slot-letter--bottom {
+  transform: translate(-50%, 95%);
+}
+.hero__letter-slot.is-animating .hero__slot-letter--top {
+  transform: translate(-50%, -155%);
+}
+.hero__letter-slot.is-animating .hero__slot-letter--bottom {
+  transform: translate(-50%, -50%);
+}
+.hero__slot--display {
+  font-family: "Pixelify Sans", "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.hero__slot--serif {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 400;
+  font-style: italic;
+  opacity: 0.92;
+}
+.hero__slot--sans {
+  font-family: "Raleway", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.hero__slot--mono {
+  font-family: "Space Mono", "Courier New", monospace;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  opacity: 0.95;
 }
 /* 3D-сцена Spline вместо статичной иллюстрации, по центру под заголовком.
    Окно (.spline-container) — видимая область; сам вьюер крупнее окна и
@@ -73,7 +176,7 @@ a { color: inherit; text-decoration: none; }
 .spline-container {
   position: absolute;
   left: 50%;
-  top: 190px;
+  top: 155px;
   transform: translateX(-50%);
   width: 600px;   /* ДЕСКТОП: видимая ширина */
   height: 600px;  /* ДЕСКТОП: видимая высота */
@@ -235,6 +338,12 @@ a { color: inherit; text-decoration: none; }
   margin-bottom: 12px;
 }
 .exp__meta dd { font-size: 14px; line-height: 19px; }
+.exp__meta-link {
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.exp__meta-link:hover { opacity: 1; }
 
 /* Experience media */
 .exp__media { display: flex; flex-direction: column; gap: 38px; }
@@ -260,19 +369,24 @@ a { color: inherit; text-decoration: none; }
 .footer { padding: 110px var(--gutter) 80px; }
 .footer__row {
   display: flex;
-  gap: 60px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
   font-size: 17px;
   line-height: 23px;
-  margin-bottom: 26px;
 }
-.footer__link { text-decoration: underline; }
-.footer__images { display: flex; gap: 24px; }
-.footer__images img {
-  width: 190px;
-  height: 190px;
-  object-fit: cover;
-  border-radius: 20px;
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  flex-shrink: 0;
 }
+.footer__link {
+  text-decoration: underline;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.footer__link:hover { opacity: 1; }
 
 /* ===== Responsive ===== */
 @media (max-width: 1000px) {
@@ -292,9 +406,23 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 767px) {
   .media-carousel__item { height: 190px; margin-right: 20px; }
-  .hero { min-height: 600px; padding-top: 40px; }
+  .hero { min-height: 560px; padding-top: 20px; }
+  .hero__title.hero__title--play {
+    font-size: clamp(28px, 7.5vw, 56px);
+  }
+  .hero__title-line {
+    flex-wrap: wrap;
+    row-gap: 0.02em;
+  }
+  .hero__letter-slot {
+    min-width: 0.62em;
+    padding: 0 0.02em;
+  }
+  .hero__letter-space {
+    width: 0.45em;
+  }
   .spline-container {
-    top: 140px;
+    top: 120px;
     width: 340px;   /* МОБИЛА: видимая ширина */
     height: 400px;  /* МОБИЛА: видимая высота */
   }
@@ -308,8 +436,12 @@ a { color: inherit; text-decoration: none; }
 @media (max-width: 560px) {
   .nav { flex-direction: column; gap: 12px; align-items: flex-start; }
   .carousel__item { width: 260px; height: 260px; }
-  .footer__row { flex-direction: column; gap: 12px; }
-  .footer__images img { width: 140px; height: 140px; }
+  .footer__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .footer__links { gap: 28px; flex-wrap: wrap; }
 }
 
 /* Уважаем системную настройку «уменьшить движение»:
@@ -317,4 +449,13 @@ a { color: inherit; text-decoration: none; }
 @media (prefers-reduced-motion: reduce) {
   .carousel,
   .media-carousel { overflow-x: auto; }
+  .nav__links--slide a {
+    transition: opacity 0.2s;
+  }
+  .nav__links--slide a:hover,
+  .nav__links--slide a:focus-visible {
+    transform: none;
+    text-decoration: underline;
+  }
+  .hero__slot-letter { transition: none; }
 }
