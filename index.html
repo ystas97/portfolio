@@ -12,8 +12,8 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@600;700&family=Playfair+Display:ital@1&family=Raleway:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=31" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Pixelify+Sans:wght@600;700&family=Playfair+Display:ital@1&family=Raleway:wght@700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=32" />
   <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.95/build/spline-viewer.js"></script>
 </head>
 <body>
@@ -43,14 +43,16 @@
       </nav>
     </header>
 
-    <!-- ===== HERO ===== -->
+    <!-- ===== HERO (Twitter badge) ===== -->
     <section class="hero">
-      <h1 class="hero__title hero__title--play" data-i18n-aria-label="hero.aria" aria-label="Multidisciplinary Product Designer">
-        <span class="hero__title-line hero__title-line--desktop" data-text="MULTIDISCIPLINARY"></span>
-        <span class="hero__title-line hero__title-line--desktop" data-text="PRODUCT DESIGNER"></span>
-        <span class="hero__title-line hero__title-line--mobile" data-text="PRODUCT"></span>
-        <span class="hero__title-line hero__title-line--mobile" data-text="DESIGNER"></span>
-      </h1>
+      <h1 class="hero__sr-only" data-i18n-aria-label="hero.aria">Multidisciplinary Product Designer</h1>
+      <div class="hero-badge" aria-hidden="true">
+        <p class="hero-badge__text hero-badge__text--desktop">PRODUCT DESIGNER</p>
+        <div class="hero-badge__text hero-badge__text--mobile">
+          <span>PRODUCT</span>
+          <span>DESIGNER</span>
+        </div>
+      </div>
       <div class="spline-container ar-16-9">
         <spline-viewer url="https://prod.spline.design/LEwbhzgiT8R9P5G9/scene.splinecode"></spline-viewer>
         <!-- Прозрачный слой поверх 3D: перехватывает события мыши/колеса,
@@ -309,7 +311,6 @@
 
   </div>
   <script src="i18n.js?v=2"></script>
-  <script src="hero-title.js?v=2"></script>
   <script src="nav-scroll.js?v=1"></script>
   <script src="nav-slide.js?v=2"></script>
   <script src="carousel.js?v=6"></script>
