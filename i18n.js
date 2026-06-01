@@ -172,9 +172,22 @@
     },
   };
 
+  function isBrowserRussian() {
+    var list = navigator.languages;
+    if (!list || !list.length) list = [navigator.language || ''];
+    var i;
+    for (i = 0; i < list.length; i += 1) {
+      var code = (list[i] || '').toLowerCase();
+      if (code === 'ru' || code.indexOf('ru-') === 0) return true;
+    }
+    return false;
+  }
+
+  /** Явный выбор в localStorage; иначе EN, для ru-браузера — RU */
   function getLang() {
     var stored = localStorage.getItem(STORAGE_KEY);
-    return stored === 'en' ? 'en' : 'ru';
+    if (stored === 'en' || stored === 'ru') return stored;
+    return isBrowserRussian() ? 'ru' : 'en';
   }
 
   function t(key, lang) {
