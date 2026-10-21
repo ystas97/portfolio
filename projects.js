@@ -341,4 +341,4 @@ window.PROJECTS = [
 ];
 
 /* Все пути к файлам — относительно общей папки assets/ */
-window.asset = (name) => "../assets/" + name;
+window.asset = (name) => "assets/" + name;
