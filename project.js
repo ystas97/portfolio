@@ -147,7 +147,9 @@
 
   const slides = new Map([...slidesEl.children].map((el) => [el.dataset.id, el]));
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const byId = new Map(screens.map((s) => [s.id, s]));
   let current = null;
+  let autoTimer;
 
   function go(id, anim = "instant") {
     const next = slides.get(id);
@@ -168,6 +170,11 @@
     next.querySelectorAll("video").forEach((v) => v.play().catch(() => {}));
     prev?.querySelectorAll("video").forEach((v) => v.pause());
     current = id;
+
+    // Экран с auto (например, загрузка) сам переходит дальше через delay мс
+    clearTimeout(autoTimer);
+    const auto = byId.get(id).auto;
+    if (auto) autoTimer = setTimeout(() => go(auto.to, auto.anim || "fade"), auto.delay || 1500);
   }
 
   slidesEl.addEventListener("click", (e) => {
