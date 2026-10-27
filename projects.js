@@ -41,6 +41,1228 @@ const back = (to) => ({ x: 28, y: 110, w: 90, h: 90, to, anim: "back" });
 
 window.PROJECTS = [
   {
+    slug: "food-scanner",
+    title: "Food Scanner",
+    lead: "Приложение для сканирования еды, контроля питания и отслеживания активности",
+    tags: ["App", "UX/UI дизайн"],
+    cover: "osam/food-scanner-card-poster.jpg",
+    coverVideo: "osam/food-scanner-card-video.mp4",
+    about: "Food Scanner объединяет сканирование еды, учёт питания, рецепты и отслеживание активности в одном приложении. Помогает следить за калориями и нутриентами, выбирать размер порции и видеть свой прогресс.\n\nДизайн основных экранов: от онбординга и информации о блюде до тренировок и статистики питания. Презентацию дополняют яркие персонажи в виде еды, мокапы и анимационные ролики.",
+    screenSize: [780, 1688],
+    screens: [
+      {
+        "id": "onboarding-1",
+        "src": "food-scanner/onboarding-1.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "onboarding-2",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "onboarding-2",
+        "src": "food-scanner/onboarding-2.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "onboarding-3",
+            "anim": "push"
+          },
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "onboarding-1",
+            "anim": "back"
+          }
+        ]
+      },
+      {
+        "id": "onboarding-3",
+        "src": "food-scanner/onboarding-3.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "onboarding-4",
+            "anim": "push"
+          },
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "onboarding-2",
+            "anim": "back"
+          }
+        ]
+      },
+      {
+        "id": "onboarding-4",
+        "src": "food-scanner/onboarding-4.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "onboarding-5",
+            "anim": "push"
+          },
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "onboarding-3",
+            "anim": "back"
+          }
+        ]
+      },
+      {
+        "id": "onboarding-5",
+        "src": "food-scanner/onboarding-5.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "onboarding-6",
+            "anim": "push"
+          },
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "onboarding-4",
+            "anim": "back"
+          }
+        ]
+      },
+      {
+        "id": "onboarding-6",
+        "src": "food-scanner/onboarding-6.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "onboarding-7",
+            "anim": "push"
+          },
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "onboarding-5",
+            "anim": "back"
+          }
+        ]
+      },
+      {
+        "id": "onboarding-7",
+        "src": "food-scanner/onboarding-7.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "streak",
+            "anim": "push"
+          },
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "onboarding-6",
+            "anim": "back"
+          }
+        ]
+      },
+      {
+        "id": "home",
+        "src": "food-scanner/home.webp",
+        "links": [
+          {
+            "x": 175,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "progress",
+            "anim": "instant"
+          },
+          {
+            "x": 310,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "recipes",
+            "anim": "instant"
+          },
+          {
+            "x": 445,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "settings",
+            "anim": "instant"
+          },
+          {
+            "x": 620,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "add-new",
+            "anim": "sheet"
+          },
+          {
+            "x": 620,
+            "y": 85,
+            "w": 140,
+            "h": 110,
+            "to": "streak",
+            "anim": "sheet"
+          },
+          {
+            "x": 35,
+            "y": 1330,
+            "w": 330,
+            "h": 150,
+            "to": "water",
+            "anim": "sheet"
+          },
+          {
+            "x": 410,
+            "y": 1330,
+            "w": 330,
+            "h": 150,
+            "to": "coffee",
+            "anim": "sheet"
+          },
+          {
+            "x": 270,
+            "y": 720,
+            "w": 200,
+            "h": 170,
+            "to": "progress",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "add-new",
+        "src": "food-scanner/add-new.webp",
+        "links": [
+          {
+            "x": 600,
+            "y": 1470,
+            "w": 170,
+            "h": 170,
+            "to": "home",
+            "anim": "fade"
+          },
+          {
+            "x": 30,
+            "y": 1300,
+            "w": 230,
+            "h": 180,
+            "to": "exercise",
+            "anim": "push"
+          },
+          {
+            "x": 270,
+            "y": 1300,
+            "w": 230,
+            "h": 180,
+            "to": "scanner-info",
+            "anim": "push"
+          },
+          {
+            "x": 510,
+            "y": 1300,
+            "w": 230,
+            "h": 180,
+            "to": "weight",
+            "anim": "push"
+          },
+          {
+            "x": 0,
+            "y": 80,
+            "w": 780,
+            "h": 1200,
+            "to": "home",
+            "anim": "fade"
+          }
+        ]
+      },
+      {
+        "id": "streak",
+        "src": "food-scanner/streak.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1450,
+            "w": 720,
+            "h": 120,
+            "to": "home",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "water",
+        "src": "food-scanner/water.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "home",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 950,
+            "w": 720,
+            "h": 120,
+            "to": "home",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "coffee",
+        "src": "food-scanner/coffee.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "home",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 950,
+            "w": 720,
+            "h": 120,
+            "to": "home",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "exercise",
+        "src": "food-scanner/exercise.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "home",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "activities",
+            "anim": "push"
+          },
+          {
+            "x": 40,
+            "y": 260,
+            "w": 700,
+            "h": 250,
+            "to": "exercise-duration",
+            "anim": "push"
+          },
+          {
+            "x": 40,
+            "y": 550,
+            "w": 700,
+            "h": 860,
+            "to": "exercise-duration",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "activities",
+        "src": "food-scanner/activities.webp",
+        "links": [
+          {
+            "x": 670,
+            "y": 90,
+            "w": 100,
+            "h": 100,
+            "to": "exercise",
+            "anim": "back"
+          },
+          {
+            "x": 35,
+            "y": 340,
+            "w": 710,
+            "h": 1110,
+            "to": "exercise-duration",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 1480,
+            "w": 350,
+            "h": 120,
+            "to": "exercise-duration",
+            "anim": "push"
+          },
+          {
+            "x": 395,
+            "y": 1480,
+            "w": 350,
+            "h": 120,
+            "to": "exercise-describe",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "exercise-describe",
+        "src": "food-scanner/exercise-describe.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "activities",
+            "anim": "back"
+          },
+          {
+            "x": 675,
+            "y": 95,
+            "w": 90,
+            "h": 90,
+            "to": "exercise-info",
+            "anim": "fade"
+          },
+          {
+            "x": 30,
+            "y": 850,
+            "w": 720,
+            "h": 120,
+            "to": "exercise-duration",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "exercise-info",
+        "src": "food-scanner/exercise-info.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1400,
+            "w": 720,
+            "h": 120,
+            "to": "exercise-describe",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "exercise-duration",
+        "src": "food-scanner/exercise-duration.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "activities",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "exercise",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "progress",
+        "src": "food-scanner/progress.webp",
+        "links": [
+          {
+            "x": 50,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "home",
+            "anim": "instant"
+          },
+          {
+            "x": 310,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "recipes",
+            "anim": "instant"
+          },
+          {
+            "x": 445,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "settings",
+            "anim": "instant"
+          },
+          {
+            "x": 620,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "add-new",
+            "anim": "sheet"
+          },
+          {
+            "x": 45,
+            "y": 230,
+            "w": 340,
+            "h": 160,
+            "to": "weight",
+            "anim": "push"
+          },
+          {
+            "x": 405,
+            "y": 230,
+            "w": 340,
+            "h": 160,
+            "to": "goal",
+            "anim": "push"
+          },
+          {
+            "x": 45,
+            "y": 1420,
+            "w": 250,
+            "h": 80,
+            "to": "bmi",
+            "anim": "sheet"
+          }
+        ]
+      },
+      {
+        "id": "bmi",
+        "src": "food-scanner/bmi.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1430,
+            "w": 720,
+            "h": 120,
+            "to": "progress",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "goal",
+        "src": "food-scanner/goal.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "progress",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 970,
+            "w": 720,
+            "h": 120,
+            "to": "progress",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "weight",
+        "src": "food-scanner/weight.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "progress",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 970,
+            "w": 720,
+            "h": 120,
+            "to": "progress",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "recipes",
+        "src": "food-scanner/recipes.webp",
+        "links": [
+          {
+            "x": 50,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "home",
+            "anim": "instant"
+          },
+          {
+            "x": 175,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "progress",
+            "anim": "instant"
+          },
+          {
+            "x": 445,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "settings",
+            "anim": "instant"
+          },
+          {
+            "x": 620,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "add-new",
+            "anim": "sheet"
+          },
+          {
+            "x": 35,
+            "y": 300,
+            "w": 710,
+            "h": 155,
+            "to": "recipe-list",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 500,
+            "w": 710,
+            "h": 155,
+            "to": "recipe-list",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 700,
+            "w": 710,
+            "h": 155,
+            "to": "recipe-list",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 900,
+            "w": 710,
+            "h": 155,
+            "to": "recipe-list",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 1160,
+            "w": 710,
+            "h": 180,
+            "to": "generate",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 1340,
+            "w": 710,
+            "h": 140,
+            "to": "improve-info",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "recipe-list",
+        "src": "food-scanner/recipe-list.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "recipes",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 245,
+            "w": 720,
+            "h": 1260,
+            "to": "recipe-details",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "recipe-details",
+        "src": "food-scanner/recipe-details.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "recipe-list",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "home",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "generate",
+        "src": "food-scanner/generate.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "recipes",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1480,
+            "w": 720,
+            "h": 120,
+            "to": "generating",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "generating",
+        "src": "food-scanner/generating.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "generate",
+            "anim": "back"
+          }
+        ],
+        "auto": {
+          "to": "generated",
+          "delay": 2200
+        }
+      },
+      {
+        "id": "generated",
+        "src": "food-scanner/generated.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "generate",
+            "anim": "back"
+          },
+          {
+            "x": 660,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "recipe-details",
+            "anim": "instant"
+          },
+          {
+            "x": 30,
+            "y": 1480,
+            "w": 355,
+            "h": 120,
+            "to": "home",
+            "anim": "push"
+          },
+          {
+            "x": 395,
+            "y": 1480,
+            "w": 355,
+            "h": 120,
+            "to": "generating",
+            "anim": "fade"
+          }
+        ]
+      },
+      {
+        "id": "improving",
+        "src": "food-scanner/improving.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "recipes",
+            "anim": "back"
+          }
+        ],
+        "auto": {
+          "to": "generated",
+          "delay": 2000
+        }
+      },
+      {
+        "id": "improve-info",
+        "src": "food-scanner/improve-info.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1320,
+            "w": 720,
+            "h": 120,
+            "to": "recipe-scanner",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "scanner",
+        "src": "food-scanner/scanner.webp",
+        "links": [
+          {
+            "x": 25,
+            "y": 95,
+            "w": 100,
+            "h": 110,
+            "to": "home",
+            "anim": "back"
+          },
+          {
+            "x": 660,
+            "y": 95,
+            "w": 100,
+            "h": 110,
+            "to": "scanner-info",
+            "anim": "fade"
+          },
+          {
+            "x": 290,
+            "y": 1360,
+            "w": 200,
+            "h": 200,
+            "to": "scanning",
+            "anim": "fade"
+          }
+        ]
+      },
+      {
+        "id": "scanner-info",
+        "src": "food-scanner/scanner-info.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1280,
+            "w": 720,
+            "h": 120,
+            "to": "scanner",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "scanning",
+        "src": "food-scanner/scanning.webp",
+        "links": [
+          {
+            "x": 25,
+            "y": 95,
+            "w": 100,
+            "h": 110,
+            "to": "home",
+            "anim": "back"
+          }
+        ],
+        "auto": {
+          "to": "meal",
+          "delay": 1800
+        }
+      },
+      {
+        "id": "meal",
+        "src": "food-scanner/meal.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "home",
+            "anim": "back"
+          },
+          {
+            "x": 35,
+            "y": 380,
+            "w": 700,
+            "h": 130,
+            "to": "meal-edit",
+            "anim": "push"
+          },
+          {
+            "x": 660,
+            "y": 870,
+            "w": 100,
+            "h": 100,
+            "to": "health-score",
+            "anim": "sheet"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "home",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "meal-edit",
+        "src": "food-scanner/meal-edit.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "meal",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 970,
+            "w": 720,
+            "h": 120,
+            "to": "meal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "health-score",
+        "src": "food-scanner/health-score.webp",
+        "links": [
+          {
+            "x": 30,
+            "y": 1430,
+            "w": 720,
+            "h": 120,
+            "to": "meal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "recipe-scanner",
+        "src": "food-scanner/recipe-scanner.webp",
+        "links": [
+          {
+            "x": 25,
+            "y": 90,
+            "w": 100,
+            "h": 110,
+            "to": "recipes",
+            "anim": "back"
+          },
+          {
+            "x": 660,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "improve-info",
+            "anim": "fade"
+          },
+          {
+            "x": 300,
+            "y": 1360,
+            "w": 180,
+            "h": 180,
+            "to": "improving",
+            "anim": "fade"
+          }
+        ]
+      },
+      {
+        "id": "settings",
+        "src": "food-scanner/settings.webp",
+        "links": [
+          {
+            "x": 50,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "home",
+            "anim": "instant"
+          },
+          {
+            "x": 175,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "progress",
+            "anim": "instant"
+          },
+          {
+            "x": 310,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "recipes",
+            "anim": "instant"
+          },
+          {
+            "x": 620,
+            "y": 1500,
+            "w": 120,
+            "h": 120,
+            "to": "add-new",
+            "anim": "sheet"
+          },
+          {
+            "x": 35,
+            "y": 220,
+            "w": 710,
+            "h": 130,
+            "to": "personal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "personal",
+        "src": "food-scanner/personal.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "settings",
+            "anim": "back"
+          },
+          {
+            "x": 35,
+            "y": 220,
+            "w": 710,
+            "h": 130,
+            "to": "current-weight",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 350,
+            "w": 710,
+            "h": 130,
+            "to": "weight-goal",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 480,
+            "w": 710,
+            "h": 130,
+            "to": "height",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 610,
+            "w": 710,
+            "h": 130,
+            "to": "birthday",
+            "anim": "push"
+          },
+          {
+            "x": 35,
+            "y": 740,
+            "w": 710,
+            "h": 130,
+            "to": "gender",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "current-weight",
+        "src": "food-scanner/current-weight.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "personal",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "personal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "weight-goal",
+        "src": "food-scanner/weight-goal.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "personal",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "personal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "height",
+        "src": "food-scanner/height.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "personal",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "personal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "gender",
+        "src": "food-scanner/gender.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "personal",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "personal",
+            "anim": "push"
+          }
+        ]
+      },
+      {
+        "id": "birthday",
+        "src": "food-scanner/birthday.webp",
+        "links": [
+          {
+            "x": 12,
+            "y": 95,
+            "w": 100,
+            "h": 100,
+            "to": "personal",
+            "anim": "back"
+          },
+          {
+            "x": 30,
+            "y": 1495,
+            "w": 720,
+            "h": 120,
+            "to": "personal",
+            "anim": "push"
+          }
+        ]
+      }
+    ],
+    gallery: [
+      "osam/food-scanner-photo-overview.jpg",
+      "osam/food-scanner-photo-nutrition.jpg",
+      "osam/food-scanner-photo-exercise.jpg"
+    ],
+    carousel: [
+      "osam/food-scanner-card-video.mp4",
+      "osam/food-scanner-onboarding.mp4",
+      "osam/food-scanner-exercise.mp4",
+      "osam/food-scanner-recipe.mp4",
+      "osam/food-scanner-stats.mp4"
+    ]
+  },
+  {
     slug: "upcleanup",
     title: "UpCleanup",
     lead: "Приложение для очистки галереи iPhone, где удалить лишнее можно одним свайпом",
