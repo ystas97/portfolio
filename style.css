@@ -733,7 +733,11 @@ a {
   .phone-col {
     position: relative;
     top: 0;
-    padding-top: 64px;
+    padding-top: 96px;
+  }
+
+  .phone-col__bar {
+    top: 32px;
   }
 
   .phone {
