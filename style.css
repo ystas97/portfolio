@@ -487,25 +487,41 @@ a {
 }
 
 .phone-col__bar {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 14px;
-  color: var(--muted);
+  gap: 14px;
+  max-width: 100%;
+  font-size: clamp(18px, 1.7vw, 24px);
+  line-height: 1.3;
+  color: var(--ink);
 }
 
 .phone-col__restart {
-  padding: 6px 12px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  background: linear-gradient(160deg, #474747, #141414 55%, #3b3b3b);
+  box-shadow: inset 0 0 5px rgba(255, 255, 255, 0.2);
   color: var(--ink);
-  font: inherit;
   cursor: pointer;
 }
 
 .phone-col__restart:hover {
   border-color: var(--ink);
+}
+
+.phone-col__restart:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
 }
 
 .phone__status {
@@ -651,7 +667,7 @@ a {
 
   .phone-col {
     top: 24px;
-    padding-top: 40px;
+    padding-top: 70px;
   }
 
   .info__close {
@@ -717,7 +733,7 @@ a {
   .phone-col {
     position: relative;
     top: 0;
-    padding-top: 32px;
+    padding-top: 64px;
   }
 
   .phone {
