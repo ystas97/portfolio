@@ -2,6 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <script>
+    // Язык по браузеру: русский — если он есть в списке языков, иначе английский.
+    // Выбор в переключателе RU/EN запоминается и важнее браузера. Поисковых ботов не трогаем.
+    (function () {
+      try {
+        if (/bot|crawl|spider|slurp|lighthouse|preview/i.test(navigator.userAgent)) return;
+        var here = document.documentElement.lang;
+        var want = localStorage.getItem("site-lang");
+        if (want !== "ru" && want !== "en") {
+          var langs = navigator.languages || [navigator.language || ""];
+          want = "en";
+          for (var i = 0; i < langs.length; i++) {
+            if ((langs[i] || "").toLowerCase().slice(0, 2) === "ru") { want = "ru"; break; }
+          }
+        }
+        if (want === here) return;
+        var path = location.pathname;
+        var target = want === "en" ? "/en" + path : path.replace(/^\/en/, "") || "/";
+        location.replace(target + location.search + location.hash);
+      } catch (e) {}
+    })();
+  </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="alternate" hreflang="ru" href="https://vitya.pro/resume.html" />
   <link rel="alternate" hreflang="en" href="https://vitya.pro/en/resume.html" />
@@ -180,7 +202,13 @@
   </div>
   <script>
     // Переключатель языка ведёт на тот же проект
-    document.querySelectorAll(".lang-switch").forEach((a) => (a.href += location.search));
+    document.querySelectorAll(".lang-switch").forEach((a) => {
+      a.href += location.search;
+      // Ручной выбор языка запоминается и отключает автоперенаправление
+      a.addEventListener("click", () => {
+        try { localStorage.setItem("site-lang", a.lang); } catch (e) {}
+      });
+    });
   </script>
 </body>
 </html>
