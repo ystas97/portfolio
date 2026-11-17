@@ -60,6 +60,29 @@ a {
   isolation: isolate;
 }
 
+/* Переключатель RU / EN в правом верхнем углу плашки */
+.lang-switch {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.lang-switch:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
 .side-card__blobs {
   position: absolute;
   inset: 0;

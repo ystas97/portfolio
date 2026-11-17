@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="alternate" hreflang="ru" href="https://vitya.pro/project.html" />
+  <link rel="alternate" hreflang="en" href="https://vitya.pro/en/project.html" />
+  <link rel="alternate" hreflang="x-default" href="https://vitya.pro/project.html" />
   <title>Проект — Виктор Радюк</title>
   <link rel="icon" href="/favicon-green.svg" type="image/svg+xml" />
   <link rel="icon" href="/favicon-green-32.png" type="image/png" sizes="32x32" />
@@ -10,7 +13,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=202610271200" />
+  <link rel="stylesheet" href="style.css?v=20261117" />
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6443JLH0M9"></script>
   <script>
@@ -47,6 +50,7 @@
   <div class="layout layout--project">
     <aside class="side-card">
       <div class="side-card__blobs" aria-hidden="true"></div>
+      <a class="lang-switch" href="/en/project.html" hreflang="en" lang="en" aria-label="English version">EN</a>
       <div class="side-card__top">
         <img class="side-card__avatar" src="assets/avatar-victor.png" alt="Виктор Радюк" width="220" height="220" />
         <p class="side-card__text">Привет, меня зовут Виктор. Я&nbsp;— senior дизайнер, 6&nbsp;лет опыта в&nbsp;дизайне.</p>
@@ -98,7 +102,11 @@
     </main>
   </div>
 
-  <script src="projects.js?v=202610271100"></script>
-  <script src="project.js?v=20261022155657"></script>
+  <script src="projects.js?v=20261117"></script>
+  <script src="project.js?v=20261117"></script>
+  <script>
+    // Переключатель языка ведёт на тот же проект
+    document.querySelectorAll(".lang-switch").forEach((a) => (a.href += location.search));
+  </script>
 </body>
 </html>

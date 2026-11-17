@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Viktor Radyuk — a senior designer with 6 years of experience in mobile apps and web platforms." />
+  <meta property="og:image" content="https://vitya.pro/assets/twitter-badge.png" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="552" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://vitya.pro/assets/twitter-badge.png" />
+  <link rel="alternate" hreflang="ru" href="https://vitya.pro/" />
+  <link rel="alternate" hreflang="en" href="https://vitya.pro/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://vitya.pro/" />
+  <title>Viktor Radyuk — Product Designer</title>
+  <link rel="icon" href="/favicon-green.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-green-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon-green.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css?v=20261117" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6443JLH0M9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6443JLH0M9');
+  </script>
+  <!-- /Google tag -->
+  <!-- Yandex.Metrika counter -->
+  <script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+      m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a);
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=109589373', 'ym');
+
+    ym(109589373, 'init', {
+      ssr:true,
+      webvisor:true,
+      clickmap:true,
+      ecommerce:"dataLayer",
+      referrer: document.referrer,
+      url: location.href,
+      accurateTrackBounce:true,
+      trackLinks:true
+    });
+  </script>
+  <!-- /Yandex.Metrika counter -->
+</head>
+<body>
+  <noscript><div><img src="https://mc.yandex.ru/watch/109589373" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <div class="layout">
+    <!-- Плашка слева: на десктопе закреплена (sticky), на мобиле — обычный блок сверху -->
+    <aside class="side-card">
+      <div class="side-card__blobs" aria-hidden="true"></div>
+      <a class="lang-switch" href="/" hreflang="ru" lang="ru" aria-label="Русская версия">RU</a>
+      <div class="side-card__top">
+        <img class="side-card__avatar" src="/assets/avatar-victor.png" alt="Viktor Radyuk" width="220" height="220" />
+        <p class="side-card__text">Hi, I&rsquo;m Viktor&nbsp;— a senior designer with 6&nbsp;years of experience.</p>
+        <p class="side-card__text">I specialise in designing mobile apps and web platforms.</p>
+      </div>
+      <nav class="side-card__actions" aria-label="Contacts">
+        <a class="pill" href="resume.html">Resume</a>
+        <a class="pill" href="https://www.linkedin.com/in/viktor-radyuk/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="pill" href="https://t.me/allo_galochka" target="_blank" rel="noopener noreferrer">Tg</a>
+      </nav>
+    </aside>
+
+    <!-- Проекты рисуются из projects.js -->
+    <main class="projects" id="projects"></main>
+  </div>
+  <script src="/projects.js?v=20261117"></script>
+  <script src="/projects.en.js?v=20261117"></script>
+  <script>
+    document.getElementById("projects").innerHTML = PROJECTS.map((p) => `
+      <a class="project" href="project.html?p=${p.slug}">
+        <div class="project__media">
+          <div class="project__tags">${p.tags.map((t) => `<span>${t}</span>`).join("")}</div>
+          ${p.coverVideo
+            ? `<video src="${asset(p.coverVideo)}" poster="${asset(p.cover)}" autoplay muted loop playsinline preload="metadata"></video>`
+            : `<img src="${asset(p.cover)}" alt="${p.title}" loading="lazy" />`}
+        </div>
+        <h2 class="project__title">${p.title}</h2>
+        <p class="project__lead">${p.lead}</p>
+      </a>`).join("");
+  </script>
+  <script>
+    // Переключатель языка ведёт на тот же проект
+    document.querySelectorAll(".lang-switch").forEach((a) => (a.href += location.search));
+  </script>
+</body>
+</html>

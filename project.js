@@ -5,8 +5,11 @@
   const total = PROJECTS.length;
   const pad = (n) => String(n).padStart(2, "0");
   const isVideo = (name) => /\.mp4$/i.test(name);
+  // Подписи интерфейса для английской версии (/en/)
+  const EN = document.documentElement.lang === "en";
+  const t = (ru, en) => (EN ? en : ru);
 
-  document.title = project.title + " — Виктор Радюк";
+  document.title = project.title + t(" — Виктор Радюк", " — Viktor Radyuk");
 
   // Header: [04/52] 2Number
   document.getElementById("info-title").textContent =
@@ -84,13 +87,13 @@
     const arrow = `<svg class="arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M1.5 8h13M9 2.5 14.5 8 9 13.5"/></svg>`;
     gallery.insertAdjacentHTML(
       "afterend",
-      `<section class="carousel" aria-label="Промо-видео">
+      `<section class="carousel" aria-label="${t("Промо-видео", "Promo videos")}">
         <div class="carousel__track" tabindex="0">
           ${items.map((n) => `<figure class="carousel__slide">${media(n)}</figure>`).join("")}
         </div>
         <div class="carousel__nav"${items.length < 3 ? " hidden" : ""}>
-          <button type="button" class="carousel__btn" data-dir="-1" aria-label="Назад"><span class="arrow--left">${arrow}</span></button>
-          <button type="button" class="carousel__btn" data-dir="1" aria-label="Вперёд">${arrow}</button>
+          <button type="button" class="carousel__btn" data-dir="-1" aria-label="${t("Назад", "Previous")}"><span class="arrow--left">${arrow}</span></button>
+          <button type="button" class="carousel__btn" data-dir="1" aria-label="${t("Вперёд", "Next")}">${arrow}</button>
         </div>
       </section>`
     );
@@ -130,15 +133,15 @@
   slidesEl.innerHTML = screens
     .map((s, i) => {
       const media = !s.src
-        ? `<div class="phone__placeholder"><span>${project.title}</span><small>Экран ${i + 1} из ${screens.length}</small></div>`
+        ? `<div class="phone__placeholder"><span>${project.title}</span><small>${t("Экран", "Screen")} ${i + 1} ${t("из", "of")} ${screens.length}</small></div>`
         : isVideo(s.src)
           ? `<video src="${asset(s.src)}" muted loop playsinline preload="metadata"></video>`
-          : `<img src="${asset(s.src)}" alt="${project.title}, экран ${i + 1}" />`;
+          : `<img src="${asset(s.src)}" alt="${project.title}, ${t("экран", "screen")} ${i + 1}" />`;
       const links = s.links
         .map(
           (l) => `<button class="phone__hotspot" type="button" data-to="${l.to}" data-anim="${l.anim || "push"}"
             style="left:${pct(l.x, sw)};top:${pct(l.y, sh)};width:${pct(l.w, sw)};height:${pct(l.h, sh)}"
-            aria-label="Перейти на следующий экран"></button>`
+            aria-label="${t("Перейти на следующий экран", "Go to the next screen")}"></button>`
         )
         .join("");
       return `<div class="phone__slide" data-id="${s.id}">${media}${links}</div>`;
